@@ -61,7 +61,6 @@ public class Game {
 		Window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Window.getContentPane().setBackground(Color.black);
 		Window.setLayout(null);
-		Window.setVisible(true);
 		con = Window.getContentPane();
 		
 		titleNamePanel = new JPanel();
@@ -87,6 +86,8 @@ public class Game {
 		
 		con.add(titleNamePanel);
 		con.add(startButtonPanel);
+
+		Window.setVisible(true);
 	}
 	
 	public void ShowIntroduction() {
@@ -518,7 +519,7 @@ public class Game {
 	}
 	
 	public void BattleDefeat() {
-		mainTextPanel.setBounds(50, 80, 800, 360);
+		mainTextPanel.setBounds(50, 80, 800, 385);
 		
 		mainTextArea.setText("=== DEFEAT ===\n\n"
 				+ "YOU HAVE BEEN DEFEATED!\n\n"
@@ -728,4 +729,5 @@ public class Game {
 			}
 		}
 	}
+
 }
