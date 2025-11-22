@@ -2,222 +2,57 @@ package Game.Enemies;
 
 public class UnderworldEnemies {
     
-   
     public static class DemonImps extends Enemy {
-    	
-    	private int enemyHp;
-        private int enemyAttack;
-        private int enemyDefence;
-        private int enemyExpReward;
+    	private static final int HP = 120;
+    	private static final int ATK = 35;
+    	private static final int DEF = 15;
+    	private static final int EXP = 300;
     	
         public DemonImps() {
-            super(
-                "Demon Imps",
-                "Normal",
-                120, 
-                31,   
-                15,  
-                100,  
-                "Underworld"
-            );
-            
-            this.setEnemyHp(120);
-            this.setEnemyAttack(31);
-            this.setEnemyDefence(15);
-            this.setEnemyExpReward(100);
+            super("Demon Imps", "Normal", HP, ATK, DEF, EXP, "Underworld");
         }
-
-        public int getEnemyHp() {
-			return enemyHp;
-		}
-
-		public void setEnemyHp(int enemyHp) {
-			this.enemyHp = enemyHp;
-		}
-		@Override
-		public int getAttack() {
-			return enemyAttack;
-		}
-
-		public void setEnemyAttack(int enemyAttack) {
-			this.enemyAttack = enemyAttack;
-		}
-		@Override
-		public int getDefence() {
-			return enemyDefence;
-		}
-
-		public void setEnemyDefence(int enemyDefence) {
-			this.enemyDefence = enemyDefence;
-		}
-		@Override
-		public int getExpReward() {
-			return enemyExpReward;
-		}
-
-		public void setEnemyExpReward(int enemyExpReward) {
-			this.enemyExpReward = enemyExpReward;
-		}
     }
-    
     
     public static class InfernalKnight extends Enemy {
-    	
-    	private int enemyHp;
-        private int enemyAttack;
-        private int enemyDefence;
-        private int enemyExpReward;
+    	private static final int HP = 300;
+    	private static final int ATK = 38;
+    	private static final int DEF = 24;
+    	private static final int EXP = 400;
     	
         public InfernalKnight() {
-            super(
-                "Infernal Knight",
-                "General",
-                300, 
-                35,   
-                35, 
-                400,  
-                "Underworld"
-            );
-            
-            this.setEnemyHp(300);
-            this.setEnemyAttack(35);
-            this.setEnemyDefence(35);
-            this.setEnemyExpReward(400);
-            
+            super("Infernal Knight", "General", HP, ATK, DEF, EXP, "Underworld");
         }
-        
-        @Override
-        public int attackPlayer() {
-            
-            if (Math.random() < 0.35) {
-                return attack + 25; 
-            }
-            return attack;
-        }
-
-		public int getEnemyHp() {
-			return enemyHp;
-		}
-
-		public void setEnemyHp(int enemyHp) {
-			this.enemyHp = enemyHp;
-		}
-		@Override
-		public int getAttack() {
-			return enemyAttack;
-		}
-
-		public void setEnemyAttack(int enemyAttack) {
-			this.enemyAttack = enemyAttack;
-		}
-		@Override
-		public int getDefence() {
-			return enemyDefence;
-		}
-
-		public void setEnemyDefence(int enemyDefence) {
-			this.enemyDefence = enemyDefence;
-		}
-		@Override
-		public int getExpReward() {
-			return enemyExpReward;
-		}
-
-		public void setEnemyExpReward(int enemyExpReward) {
-			this.enemyExpReward = enemyExpReward;
-		}
     }
     
-    
     public static class DarkLordAzrael extends Enemy {
-    	
-    	private int enemyHp;
-        private int enemyAttack;
-        private int enemyDefence;
-        private int enemyExpReward;
+    	private static final int DEFLT_HP = 400;
+    	private static final int DEFLT_ATK = 47;
+    	private static final int DEFLT_DEF = 31;
+    	private static final int DEFLT_EXP = 3500;
         private int phase = 1;
         private boolean hasUsedDarkRitual = false;
         
         public DarkLordAzrael() {
-            super(
-                "Dark Lord Azrael",
-                "Boss",
-                400,  
-                40,   
-                45,  
-                2500, 
-                "Underworld"
-            );
-            
-            this.setEnemyHp(400);
-            this.setEnemyAttack(40);
-            this.setEnemyDefence(45);
-            this.setEnemyExpReward(2500);
-            
+            super("Dark Lord Azrael", "Boss", DEFLT_HP, DEFLT_ATK, DEFLT_DEF, DEFLT_EXP, "Underworld");
         }
-        
         @Override
         public int attackPlayer() {
+            BossAttackHandler.PhaseUpdate update = 
+            		BossAttackHandler.checkPhaseTransition(this, phase, hasUsedDarkRitual);
             
-            if (currentHP < maxHP * 0.5 && phase == 1) {
-                phase = 2;
-                attack += 15;
-                defence += 10;
+            if (update.phase != phase) {
+                phase = update.phase;
+                attack += update.attackBonus;
+                defence += update.defenceBonus;
             }
             
-           
-            if (currentHP < maxHP * 0.2 && !hasUsedDarkRitual) {
-                hasUsedDarkRitual = true;
-                currentHP += 200; // Heal
-                attack += 20;
+            if (update.healAmount > 0) {
+                currentHP += update.healAmount;
+                attack += update.attackBonus;
             }
             
-            
-            double rand = Math.random();
-            if (phase >= 2) {
-                if (rand < 0.4) {
-                    return attack + 40; 
-                } else if (rand < 0.6) {
-                    return attack + 25; 
-                }
-            } else {
-                if (rand < 0.3) {
-                    return attack + 20; 
-                }
-            }
-            return attack;
+            hasUsedDarkRitual = update.hasUsedDarkRitual;
+            return BossAttackHandler.calculateDarkLordAttack(this, phase, hasUsedDarkRitual);
         }
-
-		public int getEnemyHp() {
-			return enemyHp;
-		}
-
-		public void setEnemyHp(int enemyHp) {
-			this.enemyHp = enemyHp;
-		}
-		@Override
-		public int getAttack() {
-			return enemyAttack;
-		}
-
-		public void setEnemyAttack(int enemyAttack) {
-			this.enemyAttack = enemyAttack;
-		}
-		@Override
-		public int getDefence() {
-			return enemyDefence;
-		}
-
-		public void setEnemyDefence(int enemyDefence) {
-			this.enemyDefence = enemyDefence;
-		}
-		@Override
-		public int getExpReward() {
-			return enemyExpReward;
-		}
-
-		public void setEnemyExpReward(int enemyExpReward) {
-			this.enemyExpReward = enemyExpReward;
-		}
     }
 }
