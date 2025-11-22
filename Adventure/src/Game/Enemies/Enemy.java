@@ -22,6 +22,7 @@ public class Enemy {
     }
     
     public int attackPlayer() {
+    	System.out.println("DEBUG Enemy attacking: " + name + " with attack value: " + attack);
         return attack;
     }
     
