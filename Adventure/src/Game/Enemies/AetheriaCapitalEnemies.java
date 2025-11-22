@@ -2,77 +2,38 @@ package Game.Enemies;
 
 public class AetheriaCapitalEnemies {
     
-    
     public static class CapitalGuard extends Enemy {
+    	private static final int HP = 80;
+    	private static final int ATK = 27;
+    	private static final int DEF = 12;
+    	private static final int EXP = 12;
+    	
         public CapitalGuard() {
-            super(
-                "Capital Guard",
-                "Normal",
-                80,   
-                12,   
-                10,   
-                50,  
-                "Aetheria Capital"
-            );
+            super("Capital Guard","Normal", HP, ATK, DEF, EXP, "Aetheria Capital");
         }
     }
     
  
     public static class CaptainCommander extends Enemy {
+    	private static final int HP = 200;
+    	private static final int ATK = 32;
+    	private static final int DEF = 25;
+    	private static final int EXP = 200;
+    	
         public CaptainCommander() {
-            super(
-                "Captain Commander",
-                "General",
-                200, 
-                22,  
-                25,  
-                200, 
-                "Aetheria Capital"
-            );
-        }
-        
-        @Override
-        public int attackPlayer() {
-            
-            if (Math.random() < 0.3) {
-                return attack + 15; 
-            }
-            return attack;
-        }
+            super("Captain Commander", "General", HP, ATK, DEF, EXP, "Aetheria Capital");
+        } 
     }
     
    
     public static class KingOfAetheria extends Enemy {
-        private boolean enraged = false;
+    	private static final int HP = 300;
+    	private static final int ATK = 38;
+    	private static final int DEF = 25;
+    	private static final int EXP = 1000;
         
         public KingOfAetheria() {
-            super(
-                "King of Aetheria",
-                "Boss",
-                300,  
-                25,   
-                35,  
-                1000, 
-                "Aetheria Capital"
-            );
-        }
-        
-        @Override
-        public int attackPlayer() {
-            
-            if (currentHP < maxHP * 0.3 && !enraged) {
-                enraged = true;
-                attack += 20;
-            }
-            
-            
-            double rand = Math.random();
-            if (rand < 0.2) {
-                return attack + 30;
-            } else if (rand < 0.4) {
-                return attack + 15; 
-            }
-            return attack;
+            super("King of Aetheria", "Boss", HP, ATK, DEF, EXP, "Aetheria Capital");
         }
     }
 }

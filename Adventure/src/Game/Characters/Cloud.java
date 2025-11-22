@@ -1,44 +1,14 @@
 package Game.Characters;
 
-import Game.Skills.Skill;
-
 public class Cloud extends Character {
     
+	private static final int HP = 150;
+	private static final int MP = 80;
+	private static final int ATK = 45;
+	private static final int DEF = 20;
+	
     public Cloud() {
-        super("Cloud", "Swordsman", 150, 80, 45, 20);
-        initializeSkills();
-    }
-    
-    private void initializeSkills() {
-       
-        Skill slash = new Skill(
-            "Slash",
-            "A quick sword slash",
-            30,  
-            10,  
-            0    
-        );
-        
-        
-        Skill bladeRush = new Skill(
-            "Blade Rush",
-            "Rush forward with a powerful blade strike",
-            50,  
-            25,  
-            2    
-        );
-        
-      
-        Skill heroStrike = new Skill(
-            "Hero's Strike",
-            "A legendary strike that channels heroic power",
-            85,
-            40,  
-            4    
-        );
-        
-        addSkill(0, slash);
-        addSkill(1, bladeRush);
-        addSkill(2, heroStrike);
-    }
+        super("Cloud", "Swordsman", HP, MP, ATK, DEF);
+        loadSkills(CharacterSkills.getCloudSkills());
+    } 
 }

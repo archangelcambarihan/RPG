@@ -4,7 +4,7 @@ import Game.Skills.Skill;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Character {
+public abstract class Character {
     protected String name;
     protected String className;
     protected int maxHP;
@@ -35,6 +35,12 @@ public class Character {
         this.skillCooldowns = new HashMap<>();
     }
     
+    protected void loadSkills(Skill[] skillArray) {
+        for (int i = 0; i < skillArray.length && i < 3; i++) {
+            addSkill(i, skillArray[i]);
+        }
+    }
+    
     public void addSkill(int index, Skill skill) {
         if (index >= 0 && index < 3) {
             skills[index] = skill;
@@ -60,7 +66,7 @@ public class Character {
         currentMP -= skill.getMpCost();
         skillCooldowns.put(skill.getName(), skill.getCooldown());
         
-        return attack + skill.getDamage();
+        return skill.getDamage();
     }
     
     public void reduceCooldowns() {
@@ -74,8 +80,10 @@ public class Character {
     
     public void takeDamage(int damage) {
         int actualDamage = Math.max(0, damage - defence);
+        System.out.println("DEBUG: Incoming damage: " + damage + ", Defence: " + defence + ", Actual damage: " + actualDamage + ", HP before: " + currentHP);
         currentHP -= actualDamage;
         if (currentHP < 0) currentHP = 0;
+        System.out.println("DEBUG: HP after: " + currentHP);
     }
     
     public void heal(int amount) {
@@ -86,6 +94,11 @@ public class Character {
     public void restoreMP(int amount) {
         currentMP += amount;
         if (currentMP > maxMP) currentMP = maxMP;
+    }
+    
+    public void restoreHP(int amount) {
+    	currentHP += amount;
+    	if(currentHP > maxHP) currentHP = maxHP;
     }
     
     public boolean isAlive() {
@@ -102,7 +115,11 @@ public class Character {
     public int getAttack() { return attack; }
     public int getDefence() { return defence; }
     public Skill getSkill(int index) { 
-        return (index >= 0 && index < 3) ? skills[index] : null; 
+    	 if (index >= 0 && index < 3) {
+    	        return skills[index];
+    	    } else {
+    	        return null;
+    	    } 
     }
     public int getSkillCooldown(int index) {
         if (index >= 0 && index < 3 && skills[index] != null) {
@@ -133,8 +150,7 @@ public class Character {
         attack += 5;
         defence += 2;
     }
-
-  
+    
     public int getLevel() { return level; }
     public int getCurrentExp() { return currentExp; }
     public int getExpToNextLevel() { return expToNextLevel; }

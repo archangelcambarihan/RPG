@@ -1,81 +1,39 @@
 package Game.Enemies;
 
 public class ForestOfAetheriaEnemies {
-    
    
     public static class WildBeast extends Enemy {
+    	private static final int HP = 100;
+    	private static final int ATK = 30;
+    	private static final int DEF = 12;
+    	private static final int EXP = 75;
+    	
         public WildBeast() {
-            super(
-                "Wild Beast",
-                "Normal",
-                100, 
-                23,   
-                12,   
-                75,  
-                "Forest of Aetheria"
-            );
+            super("Wild Beast", "Normal", HP, ATK, DEF, EXP, "Forest of Aetheria");
         }
     }
     
     
     public static class ForestGuardian extends Enemy {
+    	private static final int HP = 250;
+    	private static final int ATK = 35;
+    	private static final int DEF = 23;
+    	private static final int EXP = 500;
+    	
         public ForestGuardian() {
-            super(
-                "Forest Guardian",
-                "General",
-                250,  
-                26,   
-                30,  
-                300,  
-                "Forest of Aetheria"
-            );
-        }
-        
-        @Override
-        public int attackPlayer() {
-            
-            if (Math.random() < 0.25) {
-                return attack + 20; 
-            }
-            return attack;
+            super("Forest Guardian", "General", HP, ATK, DEF, EXP, "Forest of Aetheria");
         }
     }
     
    
     public static class AncientTreelord extends Enemy {
-        private int turnCounter = 0;
+    	private static final int HP = 350;
+    	private static final int ATK = 40;
+    	private static final int DEF = 26;
+    	private static final int EXP = 2500;
         
         public AncientTreelord() {
-            super(
-                "Ancient Treelord",
-                "Boss",
-                350,  
-                31,   
-                40,   
-                1500, 
-                "Forest of Aetheria"
-            );
-        }
-        
-        @Override
-        public int attackPlayer() {
-            turnCounter++;
-            
-           
-            if (turnCounter % 3 == 0) {
-                int healAmount = 50;
-                currentHP += healAmount;
-                if (currentHP > maxHP) currentHP = maxHP;
-            }
-            
-            
-            double rand = Math.random();
-            if (rand < 0.3) {
-                return attack + 25; 
-            } else if (rand < 0.5) {
-                return attack + 10; 
-            }
-            return attack;
+            super("Ancient Treelord", "Boss",HP, ATK, DEF, EXP, "Forest of Aetheria");
         }
     }
 }
