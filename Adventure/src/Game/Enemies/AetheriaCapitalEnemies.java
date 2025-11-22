@@ -2,209 +2,38 @@ package Game.Enemies;
 
 public class AetheriaCapitalEnemies {
     
-    
     public static class CapitalGuard extends Enemy {
-    	
-    	 private int enemyHp;
-         private int enemyAttack;
-         private int enemyDefence;
-         private int enemyExpReward;
+    	private static final int HP = 80;
+    	private static final int ATK = 27;
+    	private static final int DEF = 12;
+    	private static final int EXP = 12;
     	
         public CapitalGuard() {
-            super(
-                "Capital Guard",
-                "Normal",
-                80,   
-                12,   
-                10,   
-                50,  
-                "Aetheria Capital"
-            );
-            
-            this.setEnemyHp(80);
-            this.setEnemyAttack(12);
-            this.setEnemyDefence(10);
-            this.setEnemyExpReward(50);
-            
+            super("Capital Guard","Normal", HP, ATK, DEF, EXP, "Aetheria Capital");
         }
-        
-        public int getEnemyHp() {
-			return enemyHp;
-		}
-
-		public void setEnemyHp(int enemyHp) {
-			this.enemyHp = enemyHp;
-		}
-		
-		@Override
-		public int getAttack() {
-			return enemyAttack;
-		}
-
-		public void setEnemyAttack(int enemyAttack) {
-			this.enemyAttack = enemyAttack;
-		}
-		@Override
-		public int getDefence() {
-			return enemyDefence;
-		}
-
-		public void setEnemyDefence(int enemyDefence) {
-			this.enemyDefence = enemyDefence;
-		}
-		@Override
-		public int getExpReward() {
-			return enemyExpReward;
-		}
-
-		public void setEnemyExpReward(int enemyExpReward) {
-			this.enemyExpReward = enemyExpReward;
-		}
     }
     
  
     public static class CaptainCommander extends Enemy {
-    	
-    	private int enemyHp;
-        private int enemyAttack;
-        private int enemyDefence;
-        private int enemyExpReward;
+    	private static final int HP = 200;
+    	private static final int ATK = 32;
+    	private static final int DEF = 25;
+    	private static final int EXP = 200;
     	
         public CaptainCommander() {
-            super(
-                "Captain Commander",
-                "General",
-                200, 
-                22,  
-                25,  
-                200, 
-                "Aetheria Capital"
-            );
-            
-            this.setEnemyHp(200);
-            this.setEnemyAttack(22);
-            this.setEnemyDefence(25);
-            this.setEnemyExpReward(200);
-            
-        }
-        
-        @Override
-        public int attackPlayer() {
-            
-            if (Math.random() < 0.3) {
-                return attack + 15; 
-            }
-            return attack;
-        }
-        
-        public int getEnemyHp() {
-			return enemyHp;
-		}
-
-		public void setEnemyHp(int enemyHp) {
-			this.enemyHp = enemyHp;
-		}
-		@Override
-		public int getAttack() {
-			return enemyAttack;
-		}
-
-		public void setEnemyAttack(int enemyAttack) {
-			this.enemyAttack = enemyAttack;
-		}
-		@Override
-		public int getDefence() {
-			return enemyDefence;
-		}
-
-		public void setEnemyDefence(int enemyDefence) {
-			this.enemyDefence = enemyDefence;
-		}
-		@Override
-		public int getExpReward() {
-			return enemyExpReward;
-		}
-
-		public void setEnemyExpReward(int enemyExpReward) {
-			this.enemyExpReward = enemyExpReward;
-		}
+            super("Captain Commander", "General", HP, ATK, DEF, EXP, "Aetheria Capital");
+        } 
     }
     
    
     public static class KingOfAetheria extends Enemy {
-    	
-    	private int enemyHp;
-        private int enemyAttack;
-        private int enemyDefence;
-        private int enemyExpReward;
-        private boolean enraged = false;
+    	private static final int HP = 300;
+    	private static final int ATK = 38;
+    	private static final int DEF = 25;
+    	private static final int EXP = 1000;
         
         public KingOfAetheria() {
-            super(
-                "King of Aetheria",
-                "Boss",
-                300,  
-                25,   
-                35,  
-                1000, 
-                "Aetheria Capital"
-            );
-            
-            this.setEnemyHp(300);
-            this.setEnemyAttack(25);
-            this.setEnemyDefence(35);
-            this.setEnemyExpReward(1000);
-            
+            super("King of Aetheria", "Boss", HP, ATK, DEF, EXP, "Aetheria Capital");
         }
-        
-        @Override
-        public int attackPlayer() {
-            
-            if (currentHP < maxHP * 0.3 && !enraged) {
-                enraged = true;
-                attack += 20;
-            }
-            
-            
-            double rand = Math.random();
-            if (rand < 0.2) {
-                return attack + 30;
-            } else if (rand < 0.4) {
-                return attack + 15; 
-            }
-            return attack;
-        }
-        
-        public int getEnemyHp() {
-			return enemyHp;
-		}
-
-		public void setEnemyHp(int enemyHp) {
-			this.enemyHp = enemyHp;
-		}
-		@Override
-		public int getAttack() {
-			return enemyAttack;
-		}
-
-		public void setEnemyAttack(int enemyAttack) {
-			this.enemyAttack = enemyAttack;
-		}
-		@Override
-		public int getDefence() {
-			return enemyDefence;
-		}
-
-		public void setEnemyDefence(int enemyDefence) {
-			this.enemyDefence = enemyDefence;
-		}
-		@Override
-		public int getExpReward() {
-			return enemyExpReward;
-		}
-
-		public void setEnemyExpReward(int enemyExpReward) {
-			this.enemyExpReward = enemyExpReward;
-		}
     }
 }
