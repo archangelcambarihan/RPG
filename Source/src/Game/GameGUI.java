@@ -437,7 +437,6 @@ public class GameGUI {
         scrollPane.setBackground(Color.black);
         scrollPane.getViewport().setBackground(Color.black);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
-        scrollPane.setOpaque(false);
         mainTextPanel.add(scrollPane);
         
         mainTextPanel.revalidate();
