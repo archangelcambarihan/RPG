@@ -4,6 +4,6 @@
 /**
  * 
  */
-module Adventure {
+module git {
 	requires java.desktop;
 }

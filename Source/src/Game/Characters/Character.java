@@ -80,10 +80,8 @@ public abstract class Character {
     
     public void takeDamage(int damage) {
         int actualDamage = Math.max(0, damage - defence);
-        System.out.println("DEBUG: Incoming damage: " + damage + ", Defence: " + defence + ", Actual damage: " + actualDamage + ", HP before: " + currentHP);
         currentHP -= actualDamage;
         if (currentHP < 0) currentHP = 0;
-        System.out.println("DEBUG: HP after: " + currentHP);
     }
     
     public void heal(int amount) {

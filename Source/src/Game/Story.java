@@ -5,11 +5,11 @@ public class Story {
     
     public static String getIntroduction() {
         return "It was once a peaceful world of Aetheria...\n\n"
-                + "People lived in prosperity. The Kingdom of Tera was in celebration of their grand festival.\n\n"
-                + "Until...\n\n"
-                + "The seal of the Underworld was finally broken!\n\n"
-                + "Monsters attacked the world, spreading chaos and destruction.\n\n"
-                + "There is one person who is willing to do whatever it takes to restore the seal and save Aetheria...";
+              + "People lived in prosperity. The Kingdom of Tera was in celebration of their grand festival.\n\n"
+              + "Until...\n\n"
+              + "The seal of the Underworld was finally broken!\n\n"
+              + "Monsters attacked the world, spreading chaos and destruction.\n\n"
+              + "There is one person who is willing to do whatever it takes to restore the seal and save Aetheria...";
     }
     
     
