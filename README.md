@@ -1,11 +1,3 @@
-Group Name: Misfit
-Leader: Archangel A. Cambarikan
-proponents:
-Melvin Luige Rafalla
-Vincent Bocabal
-Roselle Malig-on
-
-
 TITLE OF GAME: LEGEND OF AETHERIA
 
 STORY LINE: It was once a peaceful world of Aetheria...
@@ -53,7 +45,8 @@ Stats:
 HP: 100
 MP: 150
 ATK: 40
-DEF: 10
 Skill1: Fireball - Launch a blazing ball of fire
+Skill2: Lightning Chain - Summon lightning that chains between targets
+Skill3: Meteor Strike - Call down a devastating meteor from the sky
 Skill2: Lightning Chain - Summon lightning that chains between targets
 Skill3: Meteor Strike - Call down a devastating meteor from the sky
