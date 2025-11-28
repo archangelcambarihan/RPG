@@ -10,43 +10,49 @@ There is one person who is willing to do whatever it takes to restore the seal a
 
 Character Name:
 
-//Cloud
+Cloud
 Stats:
 HP: 150
 MP: 80
 ATK: 45
 DEF: 20
-//Skill1: Slash - A quick sword slash
+
+
+Skill1: Slash - A quick sword slash
 Skill2: Blade Rush - Rush forward with a powerful blade strike
 Skill3: Hero's Strike - A legendary strike that channels heroic power
 
-//Asura
+Asura
 Stats:
 HP: 180
 MP: 60
 ATK: 50
 DEF: 20
-//Skill1: Power Punch - A devastating punch charged with raw power
+
+
+Skill1: Power Punch - A devastating punch charged with raw power
 Skill2: Fury Strike - Unleash a furious barrage of strikes
 Skill3: Iron Fist Combo - A devastating combo that breaks through defenses
 
-//Arthur
+Arthur
 Stats:
 HP: 120
 MP: 90
 ATK: 55
 DEF: 20
-//Skill1: Piercing Arrow - An arrow that pierces through armor
+
+
+Skill1: Piercing Arrow - An arrow that pierces through armor
 Skill2: Falcon Dash - Dash like a falcon and strike with precision
 Skill3: Critical Shot - A perfectly aimed shot that finds weak points
 
-//Lune
+Lune
 Stats:
 HP: 100
 MP: 150
 ATK: 40
+
+
 Skill1: Fireball - Launch a blazing ball of fire
-Skill2: Lightning Chain - Summon lightning that chains between targets
-Skill3: Meteor Strike - Call down a devastating meteor from the sky
 Skill2: Lightning Chain - Summon lightning that chains between targets
 Skill3: Meteor Strike - Call down a devastating meteor from the sky
